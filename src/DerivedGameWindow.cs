@@ -49,16 +49,6 @@ namespace Game
 			GL.MatrixMode(MatrixMode.Projection);
 			GL.LoadMatrix(ref modelview);
 
-			Rectangle r = new Rectangle (.5f, .2f, Vector2.Zero, Color.Red);
-			Rectangle p = new Rectangle (.2f, .8f, new Vector2 (-1.0f, 1.0f), Color.PaleGreen);
-
-			foreach (var i in Renderable.RenderQueue) {
-				i.Render ();
-			}
-
-			r.Free();
-			p.Free();
-
 			SwapBuffers();
 		}
 

@@ -7,11 +7,11 @@ namespace Game
 	{
 		public Vector2 Position { get; set; }
 		public Vector2 Scale { get; set; }
-		float Angle { get; set; } //Stored internally in radians
+		public float Angle { get; set; } //Stored internally in radians
 
 		public float AngleDegrees()
 		{
-			return Angle * (180 / Math.PI);
+			return Angle * (180f / (float)Math.PI);
 		}
 	}
 }

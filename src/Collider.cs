@@ -19,16 +19,17 @@ namespace Game
 		{
 			foreach (Collider c in AllColliders) {
 				if (c is BoxCollider)
-					return TestBox () ? c : null;
+					return TestBox (c) ? c : null;
 				if (c is CircleCollider)
-					return TestCircle () ? c : null;
+					return TestCircle (c) ? c : null;
 				if (c is TriangleCollider)
-					return TestTriangle () ? c : null;
+					return TestTriangle (c) ? c : null;
 				if (c is PolyCollider)
-					return TestPoly () ? c : null;
+					return TestPoly (c) ? c : null;
 				else
 					throw new NotImplementedException ();
 				}
+			return null;
 		}
 
 		protected abstract bool TestBox (Collider c);

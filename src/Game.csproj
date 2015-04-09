@@ -31,10 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="OpenTK">
-      <HintPath>..\..\..\..\usr\share\OpenTK\Binaries\OpenTK\Release\OpenTK.dll</HintPath>
-    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="OpenTK">
+      <HintPath>..\..\..\..\..\usr\share\OpenTK\Binaries\OpenTK\Release\OpenTK.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />

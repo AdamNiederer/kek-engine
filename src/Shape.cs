@@ -11,7 +11,6 @@ namespace Game
 	{
 		protected Color Colour { get; set; }
 		protected bool Visible { get; set; }
-		protected abstract PrimitiveType Primitive { get; set; }
 
 		protected static PrimitiveType LastPrimitive { get; set; }
 		public static List<Shape> RenderQueue = new List<Shape>();
@@ -20,7 +19,7 @@ namespace Game
 		public Rigidbody Body { get; set; }
 		public Transform Trans { get; set; }
 
-		Shape (Color Colour, bool Visible)
+		protected Shape (Color Colour, bool Visible)
 		{
 			this.Colour = Colour;
 			this.Visible = Visible;

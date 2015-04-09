@@ -10,30 +10,24 @@ namespace Game
 	{
 		static PrimitiveType Primitive = PrimitiveType.Quads;
 
-		public Rectangle()
+		public Rectangle(Color Colour, bool Visible) : base(Colour, Visible)
 		{
-			Coll = new BoxCollider();
+			Coll = new BoxCollider(this);
 		}
 
-			
-	/*	public override void Render() //TODO TODO TODO TODO TODO
-		{
-			if (this.Primitive != LastPrimitive) {
-				Render();
-			} else {
-				Render();
-			}
 
-			base.Render();
+			
+		public override void Render() //TODO TODO TODO TODO TODO
+		{
 			LastPrimitive = PrimitiveType.Quads;
 
 			GL.Color3(Colour);
 
-			GL.Vertex2 (Position.X, Position.Y);
-			GL.Vertex2 (Position.X + Width, Position.Y);
-			GL.Vertex2 (Position.X + Width, Position.Y - Height);
-			GL.Vertex2 (Position.X, Position.Y - Height);
-		} */
+			//GL.Vertex2 (Position.X, Position.Y);
+			//GL.Vertex2 (Position.X + Width, Position.Y);
+			//GL.Vertex2 (Position.X + Width, Position.Y - Height);
+			//GL.Vertex2 (Position.X, Position.Y - Height);
+		} 
 	}
 }
 

@@ -6,7 +6,7 @@ namespace Game
 {
 	public class Rigidbody
 	{
-		Object Parent;
+		Shape Parent;
 
 		Vector2 Velocity { get; set; }
 		Vector2 Acceleration { get; set; }
@@ -14,7 +14,7 @@ namespace Game
 		float Mass { get; set; }				//	Mass of the object
 		float Restitution { get; set; }			//	Coefficient of Restitution
 		float Friction { get; set; }			//	Coefficient of Friction
-		float Torque { get; set } 				//	As in Physics, a positive torque is counter-clockwise.
+		float Torque { get; set; } 				//	As in Physics, a positive torque is counter-clockwise.
 		float RotationalInertia { get; set; }	//	
 		float AngularVelocity { get; set; }		//	
 		float AngularAcceleration { get; set; }	//	
@@ -27,10 +27,13 @@ namespace Game
 		public virtual void AddForce (Vector2 Force, Vector2 CenterOffset)
 		{
 			Acceleration += Force / Mass;
-			if (CenterOffset != null) {
-				Torque += -1 * Force.X * CenterOffset.Y;
-				Torque += -1 * Force.Y * CenterOffset.X;
-			}
+			Torque += -1 * Force.X * CenterOffset.Y;
+			Torque += -1 * Force.Y * CenterOffset.X;
+		}
+
+		public virtual void AddForce (Vector2 Force)
+		{
+			Acceleration += Force / Mass;
 		}
 
 		public virtual void Update(float Time)
