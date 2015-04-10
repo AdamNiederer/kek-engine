@@ -49,6 +49,7 @@
     <Compile Include="CircleCollider.cs" />
     <Compile Include="TriangleCollider.cs" />
     <Compile Include="PolyCollider.cs" />
+    <Compile Include="Polygon.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

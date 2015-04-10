@@ -1,0 +1,20 @@
+﻿<Properties StartupItem="Game.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Rectangle.cs">
+    <Files>
+      <File FileName="Shape.cs" Line="52" Column="52" />
+      <File FileName="Polygon.cs" Line="4" Column="4" />
+      <File FileName="Rectangle.cs" Line="85" Column="85" />
+      <File FileName="Transform.cs" Line="40" Column="40" />
+      <File FileName="Collider.cs" Line="3" Column="3" />
+      <File FileName="PolyCollider.cs" Line="25" Column="25" />
+      <File FileName="BoxCollider.cs" Line="4" Column="4" />
+      <File FileName="CircleCollider.cs" Line="4" Column="4" />
+      <File FileName="TriangleCollider.cs" Line="4" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

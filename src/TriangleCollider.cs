@@ -9,19 +9,22 @@ namespace Game
 
 		}
 
-		protected override bool TestBox (Collider c)
+		protected override bool TestBox (BoxCollider c)
 		{
 			return false;
 		}
-		protected override bool TestCircle (Collider c)
+
+		protected override bool TestCircle (CircleCollider c)
 		{
 			return false;
 		}
-		protected override bool TestTriangle (Collider c)
+
+		protected override bool TestTriangle (TriangleCollider c)
 		{
 			return false;
 		}
-		protected override bool TestPoly (Collider c)
+
+		protected override bool TestPoly (PolyCollider c)
 		{
 			return false;
 		}

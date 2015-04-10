@@ -13,7 +13,7 @@ namespace Game
 		protected bool Visible { get; set; }
 
 		protected static PrimitiveType LastPrimitive { get; set; }
-		public static List<Shape> RenderQueue = new List<Shape>();
+		public static List<Shape> AllShapes = new List<Shape>();
 
 		public Collider Coll { get; set; }
 		public Rigidbody Body { get; set; }
@@ -23,19 +23,19 @@ namespace Game
 		{
 			this.Colour = Colour;
 			this.Visible = Visible;
-			RenderQueue.Add (this);
+			AllShapes.Add (this);
 		}
 
 		public abstract void Render ();
 
 		public virtual void Free ()
 		{
-			RenderQueue.Remove(this);
+			AllShapes.Remove (this);
 		}
 
 		public static void FreeAll ()
 		{
-			RenderQueue.Clear ();
+			AllShapes.Clear ();
 		}
 	}
 }
