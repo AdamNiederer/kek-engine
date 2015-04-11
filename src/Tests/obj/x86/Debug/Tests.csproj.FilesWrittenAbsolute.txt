@@ -1,9 +1,0 @@
-/home/adam/Programs/Game/src/Tests/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/home/adam/Programs/Game/src/Tests/bin/Debug/Tests.exe.mdb
-/home/adam/Programs/Game/src/Tests/bin/Debug/Tests.exe
-/home/adam/Programs/Game/src/Tests/obj/x86/Debug/Tests.exe
-/home/adam/Programs/Game/src/Tests/obj/x86/Debug/Tests.exe.mdb
-/home/adam/Programs/Game/src/Tests/bin/Debug/OpenTK.dll
-/home/adam/Programs/Game/src/Tests/bin/Debug/Game.dll
-/home/adam/Programs/Game/src/Tests/bin/Debug/Game.exe.mdb
-/home/adam/Programs/Game/src/Tests/bin/Debug/Game.dll.mdb
