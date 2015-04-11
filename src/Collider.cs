@@ -25,8 +25,21 @@ namespace Game
 				if (c is PolyCollider)
 					return TestPoly (c as PolyCollider) ? c : null;
 				else
-					throw new NotImplementedException ();
+					throw new ArgumentException ();
 				}
+			return null;
+		}
+
+		public virtual Collider TestCollision(Collider c)
+		{
+			if (c is BoxCollider)
+				return TestBox (c as BoxCollider) ? c : null;
+			if (c is CircleCollider)
+				return TestCircle (c as CircleCollider) ? c : null;
+			if (c is PolyCollider)
+				return TestPoly (c as PolyCollider) ? c : null;
+			else
+				throw new ArgumentException ();
 			return null;
 		}
 			

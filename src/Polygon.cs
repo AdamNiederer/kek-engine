@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using OpenTK;
 using System.Collections.Generic;
+using OpenTK;
 
 namespace Game
 {

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using Game;
-
 /*
   * 
   * Unnamed rendering/physics engine. Copyright Adam Niederer 2015.
@@ -15,20 +14,33 @@ using Game;
   * 
   */
 
+/*
+	BaseTest: A simple check when everything else fails
+	Objects: Shape, RigidBody, Collider, Rectangle
+	Methods: Render(); Update(); 
+	Expected Result: The polygon accelerates to the right.
+	Anomalies: The Rectangle is technically a polygon, and the BoxCollider will not work in this case.
+*/
+
 namespace Tests
 {
 	public class BaseTest
 	{
 		static void Main()
 		{
-			Console.WriteLine ("Hello!!");
+			ColliderTest.Test ();
+		}
+
+
+		public static void Test()
+		{
 			using (GameWindow gw = new GameWindow (800, 600, OpenTK.Graphics.GraphicsMode.Default, "Dank Game")) {
-				Game.Rectangle r = new Game.Rectangle (Color.Purple, true, new List<Vector2> {
+				Game.Rectangle r = new Game.Rectangle (new List<Vector2> {
 					new Vector2 (0.0f, 0.0f),
 					new Vector2 (0.0f, 1.0f),
 					new Vector2 (0.9f, 0.9f),
 					new Vector2 (1.0f, 0.0f),
-				});
+				}, Color.Purple, true);
 
 				gw.Load += (sender, e) => {
 					gw.VSync = VSyncMode.On;

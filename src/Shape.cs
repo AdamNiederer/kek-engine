@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
+using System.Collections.Generic;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
@@ -14,7 +14,7 @@ namespace Game
 		public List<Vector2> Points;
 		public bool Visible;
 
-		protected Color Colour;
+		public Color Colour;
 
 		protected static PrimitiveType LastPrimitive;
 		public static List<Shape> AllShapes = new List<Shape>();

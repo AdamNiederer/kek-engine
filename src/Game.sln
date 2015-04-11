@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game.csproj", "{07F697BE-FE44-4EDE-A02E-384A34929B50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{D2C14B45-3F23-4294-A129-DECC53047CB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\tests\Tests.csproj", "{D2C14B45-3F23-4294-A129-DECC53047CB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,5 +19,8 @@ Global
 		{D2C14B45-3F23-4294-A129-DECC53047CB7}.Debug|x86.Build.0 = Debug|x86
 		{D2C14B45-3F23-4294-A129-DECC53047CB7}.Release|x86.ActiveCfg = Release|x86
 		{D2C14B45-3F23-4294-A129-DECC53047CB7}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		outputpath = ..\tests\bin
 	EndGlobalSection
 EndGlobal

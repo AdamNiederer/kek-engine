@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Timers;
+using System.Drawing;
 using System.Collections.Generic;
 using OpenTK;
 
@@ -9,21 +9,21 @@ namespace Game
 	{
 		Shape Parent;
 
-		Vector2 Position;			//	Meters						<i,j>	Location of the Center of Mass
-		Vector2 Velocity;			//	Meters per Second			<i,j>	Velocity of Object
-		Vector2 Acceleration;		//	Meters per Second Squared	<i,j>	Acceleration of Object
-		Vector2 Momentum;			// 	Kilograms Meters per Second	<i,j>	Momentum of Object
-		Vector2 Energy;				// 	Joules						<i,j>	Kinetic Energy of Object
+		public Vector2 Position;			//	Meters						<i,j>	Location of the Center of Mass
+		public Vector2 Velocity;			//	Meters per Second			<i,j>	Velocity of Object
+		public Vector2 Acceleration;		//	Meters per Second Squared	<i,j>	Acceleration of Object
+		public Vector2 Momentum;			// 	Kilograms Meters per Second	<i,j>	Momentum of Object
+		public Vector2 Energy;				// 	Joules						<i,j>	Kinetic Energy of Object
 
-		float Restitution;			//	Coefficient of Restitution
-		float Friction;				//	Coefficient of Friction
+		public float Restitution;			//	Coefficient of Restitution
+		public float Friction;				//	Coefficient of Friction
 
-		float Mass;					//	Kilograms
-		float RotationalInertia;	//	Kilograms Meters
+		public float Mass;					//	Kilograms
+		public float RotationalInertia;		//	Kilograms Meters
 
-		float AngularVelocity;		//	Radians per Second
-		float AngularAcceleration;	//	Radians per Second Squared
-		float Angle; 				//	Radians
+		public float AngularVelocity;		//	Radians per Second
+		public float AngularAcceleration;	//	Radians per Second Squared
+		public float Angle; 				//	Radians
 
 		public Rigidbody(Shape s)
 		{
