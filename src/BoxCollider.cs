@@ -1,13 +1,14 @@
 ﻿using System;
 using OpenTK;
+using System.Collections.Generic;
 
 namespace Game
 {
 	public class BoxCollider : Collider
 	{
+		List<Vector2> Points = new List<Vector2>();
 
-
-		public BoxCollider (Object Parent) : base(Parent)
+		public BoxCollider (Shape Parent) : base(Parent)
 		{
 
 		}
@@ -22,11 +23,6 @@ namespace Game
 			return false;
 		}
 
-		protected override bool TestTriangle (TriangleCollider c)
-		{
-			return false;
-		}
-
 		protected override bool TestPoly (PolyCollider c)
 		{
 			return false;
@@ -36,6 +32,7 @@ namespace Game
 		{
 			return 0.0f;
 		}
+
 		public override float DistanceSquared(Collider c)
 		{
 			return 0.0f;

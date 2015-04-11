@@ -9,15 +9,16 @@ namespace Game
 {
 	public abstract class Shape
 	{
-		protected Color Colour { get; set; }
-		protected bool Visible { get; set; }
+		public Collider Coll;
+		public Rigidbody Body;
+		public List<Vector2> Points;
+		public bool Visible;
 
-		protected static PrimitiveType LastPrimitive { get; set; }
+		protected Color Colour;
+
+		protected static PrimitiveType LastPrimitive;
 		public static List<Shape> AllShapes = new List<Shape>();
 
-		public Collider Coll { get; set; }
-		public Rigidbody Body { get; set; }
-		public Transform Trans { get; set; }
 
 		protected Shape (Color Colour, bool Visible)
 		{

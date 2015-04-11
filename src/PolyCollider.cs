@@ -6,11 +6,9 @@ namespace Game
 {
 	public class PolyCollider : Collider
 	{
-		List<Vector2> Points;
-
-		public PolyCollider (Object Parent, List<Vector2> Points) : base(Parent)
+		public PolyCollider (Shape Parent) : base(Parent)
 		{
-			this.Points = Points;
+
 		}
 
 		protected override bool TestBox (BoxCollider c)
@@ -22,13 +20,8 @@ namespace Game
 		{
 			return false;
 		}
-
-		protected override bool TestTriangle (TriangleCollider c)
-		{
-			return false;
-		}
 			
-		public Vector2 ProjectCollider(Vector2 Axis, List<Vector2> Points) 
+		public static Vector2 ProjectCollider(Vector2 Axis, List<Vector2> Points) 
 		{
 			float min = float.NegativeInfinity;
 			float max = float.PositiveInfinity;
@@ -49,24 +42,24 @@ namespace Game
 			List<Vector2> Projections = new List<Vector2> ();
 			List<Vector2> CProjections = new List<Vector2> ();
 
-			for (int i = 1; i < Points.Count; i++) {
-				Vector2 Point2 = Points [i];
-				Vector2 Point1 = Points [i - 1];
+			for (int i = 1; i < Parent.Points.Count; i++) {
+				Vector2 Point2 = Parent.Points [i];
+				Vector2 Point1 = Parent.Points [i - 1];
 				Normals.Add ((Point2 - Point1).PerpendicularLeft.Normalized());
 			}
 				
-			for (int i = 1; i < c.Points.Count; i++) {
-				Vector2 Point2 = Points [i];
-				Vector2 Point1 = Points [i - 1];
+			for (int i = 1; i < c.Parent.Points.Count; i++) {
+				Vector2 Point2 = Parent.Points [i];
+				Vector2 Point1 = Parent.Points [i - 1];
 				CNormals.Add ((Point2 - Point1).PerpendicularLeft.Normalized());
 			}
 
 			foreach (Vector2 n in Normals) {
-				Projections.Add (ProjectCollider (n, Points));
+				Projections.Add (ProjectCollider (n, Parent.Points));
 			}
 
 			foreach (Vector2 n in CNormals) {
-				CProjections.Add (ProjectCollider (n, Points));
+				CProjections.Add (ProjectCollider (n, Parent.Points));
 			}
 
 			foreach (Vector2 p in Projections) {

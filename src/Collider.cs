@@ -5,11 +5,11 @@ namespace Game
 {
 	public abstract class Collider
 	{
-		Object Parent { get; set; }
+		public Shape Parent;
 
-		public static List<Collider> AllColliders { get; set; }
+		public static List<Collider> AllColliders = new List<Collider> ();
 
-		public Collider(Object Parent)
+		public Collider(Shape Parent)
 		{
 			this.Parent = Parent;
 			AllColliders.Add (this);
@@ -22,8 +22,6 @@ namespace Game
 					return TestBox (c as BoxCollider) ? c : null;
 				if (c is CircleCollider)
 					return TestCircle (c as CircleCollider) ? c : null;
-				if (c is TriangleCollider)
-					return TestTriangle (c as TriangleCollider) ? c : null;
 				if (c is PolyCollider)
 					return TestPoly (c as PolyCollider) ? c : null;
 				else
@@ -31,10 +29,10 @@ namespace Game
 				}
 			return null;
 		}
+			
 
 		protected abstract bool TestBox (BoxCollider c);
 		protected abstract bool TestCircle (CircleCollider c);
-		protected abstract bool TestTriangle (TriangleCollider c);
 		protected abstract bool TestPoly (PolyCollider c);
 
 		public abstract float Distance(Collider c);

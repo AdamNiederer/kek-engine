@@ -7,7 +7,6 @@ namespace Game
 {
 	public class Polygon : Shape
 	{
-		List<Vector2> Points;
 		public Polygon (Color Colour, bool Visible, List<Vector2> Points) : base (Colour, Visible)
 		{
 			Shape.AllShapes.Add (this);
