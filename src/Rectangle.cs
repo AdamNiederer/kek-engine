@@ -54,19 +54,13 @@ namespace Game
 			
 		public override void Render()
 		{
-			LastPrimitive = Primitive;
-
 			GL.Begin (Primitive);
-
 			GL.Color3 (Colour);
-
 			foreach (Vector2 p in Points) {
 				GL.Vertex2 (p);
 			}
-
 			GL.End ();
-
-		} 
+		}
 	}
 }
 

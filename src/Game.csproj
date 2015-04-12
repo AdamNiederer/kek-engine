@@ -48,6 +48,7 @@
     <Compile Include="Polygon.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="RegularPolygon.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

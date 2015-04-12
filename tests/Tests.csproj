@@ -35,6 +35,8 @@
     <Compile Include="BaseTest.cs" />
     <Compile Include="ColliderTest.cs" />
     <Compile Include="CircleTest.cs" />
+    <Compile Include="RectangleTest.cs" />
+    <Compile Include="PolygonTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">

@@ -4,15 +4,6 @@ using System.Collections.Generic;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using Game;
-/*
-  * 
-  * Unnamed rendering/physics engine. Copyright Adam Niederer 2015.
-  * Licensed under the LGPL v3. This project uses OpenTK for a large portion of its code. Find it at http://opentk.com
-  * OpenTK is licensed under the MIT License. You may find it at http://www.opentk.com/project/license
-  * 
-  * This project is currently a shell. Intended specification includes both accurate physical calculations for bodies and OpenGL-based real-time rendering
-  * 
-  */
 
 /*
 	BaseTest: A simple check when everything else fails
@@ -28,7 +19,7 @@ namespace Tests
 	{
 		static void Main()
 		{
-			CircleTest.Test ();
+			PolygonTest.Test ();
 		}
 
 		public static void Test()
@@ -65,7 +56,7 @@ namespace Tests
 
 					foreach (Shape s in Shape.AllShapes) {
 						if (s.Visible) {
-							s.Render ();
+							s.Render();
 						}
 					}
 

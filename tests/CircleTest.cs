@@ -5,6 +5,14 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using Game;
 
+/*
+	CircleTest: A rendered test to ensure CircleColliders and their associated parts are working
+	Objects: Shape, Collider, Circle, CircleCollider, Rigidbody
+	Methods: TestCollision() and derivatives, Update(), Render().
+	Expected Result: The Circles will collide, pass through each other, and turn red for the duration of the collision.
+	Anomalies: The test will continue until the circles have infinite velocity. Only the first and second passes should be considered valid.
+*/
+
 namespace Tests
 {
 	public class CircleTest
@@ -12,7 +20,6 @@ namespace Tests
 		public static void Test()
 		{
 			using (GameWindow gw = new GameWindow (800, 600, OpenTK.Graphics.GraphicsMode.Default, "Dank Game")) {
-				Console.WriteLine("Hello!");
 
 				Circle.GlobalResolution = 48;
 
@@ -60,7 +67,6 @@ namespace Tests
 						}
 					}
 
-					CircleCollider.RenderDebugVectors();
 					gw.SwapBuffers();
 				};
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using OpenTK;
 
 namespace Game
 {
@@ -15,22 +16,25 @@ namespace Game
 			AllColliders.Add (this);
 		}
 
-		public virtual Collider TestCollision()
+		public virtual List<Collider> TestCollision()
 		{
+			List<Collider> Collisions = new List<Collider> ();
 			foreach (Collider c in AllColliders) {
-				if (c is BoxCollider)
+				if (c is BoxCollider) {
 					if (TestBox (c as BoxCollider))
-						return c;
-				if (c is CircleCollider)
+						Collisions.Add (c);
+				} else 
+				if (c is CircleCollider) {
 					if (TestCircle (c as CircleCollider))
-						return c;
-				if (c is PolyCollider)
+						Collisions.Add (c);
+				} else
+				if (c is PolyCollider) {
 					if (TestPoly (c as PolyCollider))
-						return c;
-				else
+						Collisions.Add (c);
+				} else
 					throw new ArgumentException ();
-				}
-			return null;
+			}
+			return Collisions.Count > 0 ? Collisions : null;
 		}
 
 		public virtual Collider TestCollision(Collider c)
@@ -43,6 +47,20 @@ namespace Game
 				return TestPoly (c as PolyCollider) ? c : null;
 			else
 				throw new ArgumentException ();
+		}
+
+		public static Vector2 ProjectCollider(Vector2 Axis, List<Vector2> Points) 
+		{
+			float min = float.PositiveInfinity;
+			float max = float.NegativeInfinity;
+			for (int i = 0; i < Points.Count; i++) {
+				float dot = Vector2.Dot(Axis, Points[i]);
+				if (dot < min)
+					min = dot;
+				if(dot > max)
+					max = dot;
+			}
+			return new Vector2 (min, max);
 		}
 			
 

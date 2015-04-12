@@ -20,48 +20,47 @@ namespace Game
 			if (Points.Count > 1)
 				throw new ArgumentException ();
 
-			this.Radius = Radius;
-			this.Points = new List<Vector2> ();
 			Shape.AllShapes.Add (this);
+			this.Radius = Radius;
+			Points = SetPoints (Points[0], Radius, GlobalResolution);
 			Coll = new CircleCollider (this, Radius);
 			Body = new Rigidbody (this, Points[0]);
 
-			SetPoints (Points[0], Radius, GlobalResolution);
 		}
 
 		public Circle (Color Colour, bool Visible, List<Vector2> Points, float Radius, int Resolution) : base (Colour, Visible)
 		{
-			this.Points = Points;
+			if (Points.Count > 1)
+				throw new ArgumentException ();
 
-			this.Points = Points;
 			Shape.AllShapes.Add (this);
+			this.Radius = Radius;
+			Points = SetPoints (Points[0], Radius, Resolution);
 			Coll = new CircleCollider (this, Radius);
-			Body = new Rigidbody (this);
-
-			SetPoints (Points[0], Radius, Resolution);
+			Body = new Rigidbody (this, Points[0]);
 		}
 
 		public override void Render()
 		{
-			LastPrimitive = Primitive;
-
 			GL.Begin (Primitive);
-
 			GL.Color3 (Colour);
-
 			foreach (Vector2 p in Points) {
 				GL.Vertex2 (p);
 			}
-
 			GL.End ();
 		}
 
-		void SetPoints(Vector2 Origin, float Radius, int Resolution)
+		List<Vector2> SetPoints(Vector2 Origin, float Radius, int Resolution)
 		{
+			List<Vector2> Points = new List<Vector2>();
 			float PointAngleDelta = (float)(2 * Math.PI) / (float)Resolution;
 			for (int i = 0; i < Resolution; i++) {
-				this.Points.Add (Origin + new Vector2 (Radius * (float)Math.Cos (PointAngleDelta * i), ((float)2 * Radius) * (float)Math.Sin (PointAngleDelta * i)));
+				Points.Add (Origin + new Vector2 (Radius * (float)Math.Cos (PointAngleDelta * i), ((float)2 * Radius) * (float)Math.Sin (PointAngleDelta * i)));
 			}
+
+			if (Points.Count < 3)
+				throw new ArgumentException ("This circle has no renderable points. Your resolution is less than three.");
+			return Points;
 		}
 	}
 }
