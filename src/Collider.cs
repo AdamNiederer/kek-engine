@@ -19,11 +19,14 @@ namespace Game
 		{
 			foreach (Collider c in AllColliders) {
 				if (c is BoxCollider)
-					return TestBox (c as BoxCollider) ? c : null;
+					if (TestBox (c as BoxCollider))
+						return c;
 				if (c is CircleCollider)
-					return TestCircle (c as CircleCollider) ? c : null;
+					if (TestCircle (c as CircleCollider))
+						return c;
 				if (c is PolyCollider)
-					return TestPoly (c as PolyCollider) ? c : null;
+					if (TestPoly (c as PolyCollider))
+						return c;
 				else
 					throw new ArgumentException ();
 				}
@@ -40,7 +43,6 @@ namespace Game
 				return TestPoly (c as PolyCollider) ? c : null;
 			else
 				throw new ArgumentException ();
-			return null;
 		}
 			
 

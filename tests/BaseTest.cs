@@ -28,9 +28,8 @@ namespace Tests
 	{
 		static void Main()
 		{
-			ColliderTest.Test ();
+			CircleTest.Test ();
 		}
-
 
 		public static void Test()
 		{

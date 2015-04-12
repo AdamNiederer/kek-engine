@@ -1,15 +1,21 @@
 ﻿using System;
 using OpenTK;
+using OpenTK.Graphics.OpenGL; //TODO: Remove this after debugging
 using System.Collections.Generic;
 namespace Game
 {
 	public class CircleCollider : Collider
 	{
 		float Radius;
+		static List<Vector2> DebugVectors = new List<Vector2> (); //TODO: Remove this.
 
-		public CircleCollider (Shape Parent) : base(Parent)
+		public CircleCollider (Shape Parent, float Radius) : base(Parent)
 		{
+			if (!(Parent is Circle))
+				throw new ArgumentException ("Why are you giving a non-circle a CircleCollider?");
 
+			Console.WriteLine (Radius);
+			this.Radius = Radius;
 		}
 
 		protected override bool TestBox (BoxCollider c)
@@ -51,16 +57,16 @@ namespace Game
 
 		protected override bool TestCircle (CircleCollider c)
 		{
-			if (c.Parent.Points.Count > 1)
-				throw new ArgumentException (); //Debug.
+			if (this == c)
+				return false;
 
-			Vector2 l = c.Parent.Points[0] - Parent.Points[0];
-			if (l.Length > Math.Abs (Radius) + Math.Abs (c.Radius)) {
+			Vector2 l = c.Parent.Body.Position - Parent.Body.Position;
+			if (l.Length <= Math.Abs (Radius) + Math.Abs (c.Radius)) {
 				return true;
 			}
+
 			return false;
 		}
-			
 
 		protected override bool TestPoly (PolyCollider c)
 		{
@@ -109,6 +115,19 @@ namespace Game
 		public override float DistanceSquared(Collider c)
 		{
 			return 0.0f;
+		}
+
+		public static void RenderDebugVectors()
+		{
+			GL.Begin (PrimitiveType.Lines);
+			GL.Color3 (255, 255, 255);
+			foreach (Vector2 v in DebugVectors) {
+				GL.Vertex2 (0, 0);
+				GL.Vertex2 (v);
+			}
+			GL.End ();
+
+			DebugVectors.Clear ();
 		}
 	}
 }
